@@ -12,7 +12,7 @@ class Tategaki {
     private $lines;
     private $maxcount = 0;
     private $linesize = 0;
-    public $data = array();
+    private $data = array();
     
     public function __construct($value){
         $this->value = trim($value);
@@ -32,8 +32,6 @@ class Tategaki {
 
           ２行目１文字[0,1] => [ls - 1,1] = [ls - 1 - $j , $i]
           ２行目２文字[1,1] => [ls - 2,1] = [ls - 1 - $j , $i]
-
-
          */
         $ls = $this->linesize;
         $mc = $this->maxcount;
@@ -87,7 +85,6 @@ class Tategaki {
     }
 }
 
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -97,13 +94,14 @@ class Tategaki {
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
     <body>
-    <h1>縦書き文字列生成サービス</h1>
+    <h1>縦書き文字列生成サービス(String Generator that string is witten vertical)</h1>
+    <p>縦書きの文字列を作成できます。</p>
+    <p>You can make string that is writen vertical.</p>
     <form method="post">
-    <label for="count">生成したい文字数</label>
     <textarea style="width:100%;height:100px" name="value"><?php echo $value; ?></textarea>
-    <input type="submit" value="生成する">
+    <input type="submit" value="generate">
     </form>
-    <h2>結果</h2>
+    <h2>結果(output)</h2>
 <pre style="width:100%;">
 <?php echo $buf;?>
 </pre>
