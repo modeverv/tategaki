@@ -2,11 +2,12 @@
 $buf = "";
 $value = "";
 if(isset($_REQUEST["value"])){
-    $value = $_REQUEST["value"];
+    $value = htmlspecialchars($_REQUEST["value"]);
     $buf = $value;
     $tategaki = new Tategaki($value);
     $buf = $tategaki->get();
 }
+
 class Tategaki {
     private $value;
     private $lines;
