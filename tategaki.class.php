@@ -42,8 +42,9 @@ class Tategaki {
             }
             $buf .= $sepalator;
         }
-        $buf .= "#縦書き https://lovesaemi.daemon.asia/tategaki/";
-        $buf = preg_replace("/^　/","□",$buf);
+        //$buf .= "#縦書き https://lovesaemi.daemon.asia/tategaki/";
+        //$buf = preg_replace("/^　/","□",$buf);
+        $buf = mb_convert_kana($buf,"R");
         return $buf;
     }
 
@@ -72,8 +73,7 @@ class Tategaki {
 
     private function normarizeChar($char){
         if(!preg_match('/[^ -~｡-ﾟ\x00-\x1f\t]+/u', $char)){
-            // return $char . " ";
-            return $char . "&nbsp;";
+            return $char . " ";
         }else{
             return $char;
         }
