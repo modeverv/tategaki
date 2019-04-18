@@ -5,7 +5,7 @@ class Tategaki {
     private $maxcount = 0;
     private $linesize = 0;
     private $data = array();
-    
+
     public function __construct($value){
         $this->value = trim($value);
         $this->plot();
@@ -42,11 +42,11 @@ class Tategaki {
             }
             $buf .= $sepalator;
         }
-        $buf .= "#縦書き";
+        $buf .= "#縦書き https://lovesaemi.daemon.asia/tategaki/";
         $buf = preg_replace("/^　/","□",$buf);
         return $buf;
     }
-    
+
     private function plot(){
         $cr = array("\r\n","\r");
         $this->value = str_replace($cr,"\n",$this->value);
